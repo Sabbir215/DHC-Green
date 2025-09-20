@@ -1,8 +1,5 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
-import { getFirestore, doc, getDoc } from "firebase-admin/firestore";
-import { app } from "../firebase/client"; // This is for client-side, we need admin for server-side
 
 // --- Server-Side Data Fetching ---
 // Astro allows us to fetch data directly in the frontmatter. 
@@ -94,9 +91,9 @@ users = await getUsers();
 </Layout>
 
 <script>
-  import { onAuthStateChangedListener } from "../firebase/auth";
-  import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore";
-  import { app } from "../firebase/client";
+  import { collection, doc, getDoc, getDocs, getFirestore } from "firebase/firestore";
+import { onAuthStateChangedListener } from "../firebase/auth";
+import { app } from "../firebase/client";
 
   const welcomeMessage = document.getElementById('welcome-message');
 
